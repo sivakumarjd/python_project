@@ -13,11 +13,8 @@ logger = logging.getLogger(__name__)
 
 def process_event(event: dict) -> dict:
     # Parse event by decoding, decompressing
-<<<<<<< HEAD
     decoded_payload = base64.b64decode(event.get("awslogs11").get("data"))
-=======
     decoded_payload = base64.b64decode(event.get("awslogs").get("data1"))
->>>>>>> 1d3369843296cb76c2ce972f7469644ce9d117a6
     uncompressed_payload = gzip.decompress(decoded_payload)
     payload = json.loads(uncompressed_payload)
     return payload
